@@ -30,11 +30,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',  # < As per whitenoise documentation
     'rest_framework',
+    'corsheaders',
 
 
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -121,9 +123,14 @@ STATIC_URL = '/static/'
 
 django_heroku.settings(locals())
 
+# CORS_ALLOW_ALL_ORIGINS = True
+# CORS_URLS_REGEX = r'^/.*$'
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '']
 # Place static in the same location as webpack build files
 STATIC_ROOT = os.path.join(BASE_DIR, 'build', 'static')
-STATICFILES_DIRS = []
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, './build', './build/static'),
+]
 
 # If you want to serve user uploaded files add these settings
 MEDIA_URL = '/media/'
