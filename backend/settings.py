@@ -14,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'o9&2c0&m&3cqm0#ckb=(8i#iu&9eg=9*u7x1q(za@vu_c^tdqz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False  # True
 
 ALLOWED_HOSTS = []
 
@@ -125,7 +125,7 @@ django_heroku.settings(locals())
 
 # CORS_ALLOW_ALL_ORIGINS = True
 # CORS_URLS_REGEX = r'^/.*$'
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '', 'autodox.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '', 'autodox.herokuapp.com']
 # Place static in the same location as webpack build files
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [

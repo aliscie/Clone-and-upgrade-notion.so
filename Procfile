@@ -1,0 +1,1 @@
+web: gunicorn backend.wsgi --long-file
